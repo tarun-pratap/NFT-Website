@@ -1,0 +1,10 @@
+.buyarea{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+}
+
+.filters{
+    border-right: 2px solid white;
+}

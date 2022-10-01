@@ -1,3 +1,10 @@
+body{
+  background-color: #000d27;
+}
+.pages{
+  padding: 1rem 2rem;
+
+}
 .App {
   text-align: center;
 }
