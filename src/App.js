@@ -7,6 +7,7 @@ import Home from './components/Home';
 
 
 
+
 function App() {
   return (
     <>
@@ -14,8 +15,8 @@ function App() {
     <div className="pages">
 
     {/* <Dashboard/> */}
-    <MarketPlace/>
-    {/* <Home/> */}
+    {/* <MarketPlace/> */}
+    <Home/>
 
 
     </div>
