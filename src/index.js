@@ -13,12 +13,12 @@ root.render(
     
     {/* <Login/> */}
     <App/>
+    {/* <Register/> */}
     {/* <BrowserRouter>
     <div id='Home'>
       <App></App>
     </div>
     <div id='register'>
-      <Register/>
     </div>
     </BrowserRouter> */}
   </React.StrictMode>

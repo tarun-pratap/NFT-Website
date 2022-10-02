@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/navbar';
 import Dashboard from './components/dashboard';
 import MarketPlace from './components/MarketPlace';
+import Home from './components/Home';
 
 
 
@@ -14,6 +15,9 @@ function App() {
 
     {/* <Dashboard/> */}
     <MarketPlace/>
+    {/* <Home/> */}
+
+
     </div>
     </>
   );

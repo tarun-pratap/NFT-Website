@@ -18,6 +18,7 @@ function navbar() {
                     <li className='navli'> <NavHashLink smooth  exact to="#home" className="navroute"> Home </NavHashLink> </li>
                     <li className='navli'> <NavHashLink smooth  exact to="#skills" className="navroute"> Explore </NavHashLink> </li>
                     <li className='navli'> <NavHashLink smooth  exact to="#projects" className="navroute"> Marketplace </NavHashLink> </li>
+                    <li className='navli'> <NavHashLink smooth  exact to="#contact" className="navroute"> Steal Bucket </NavHashLink> </li>
                     <li className='navli'> <NavHashLink smooth  exact to="#contact" className="navroute"> My NFTs </NavHashLink> </li>
                     <li className='navli' id='dash'> <NavHashLink smooth  exact to="#about" className="navroute"> Dashboard </NavHashLink> </li>
                 </ul>
