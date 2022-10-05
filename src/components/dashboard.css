@@ -1,0 +1,47 @@
+.cardrow{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 3rem;
+}
+
+.scard{
+    height: 15vh;
+    background-color: aqua;
+    border-radius: 1rem;
+}
+
+.first{
+    display: flex;
+    margin-top: 2rem;
+   justify-content: space-between;
+}
+
+
+.propic{
+    padding-right: 1rem;
+    border-right: 1px solid white;
+}
+.profdp{
+    width: 30vh;
+    height: 30vh;
+    border-radius: 15vh;
+    
+}
+
+.profile{
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 59vw;
+    background-color: #152846;
+    height: 40vh;
+    border-radius: 3em;
+}
+
+.stats{
+    width: 35vw;
+    background-color: #152846;
+    height: 40vh;
+    border-radius: 3em;
+}

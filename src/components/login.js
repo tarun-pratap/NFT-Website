@@ -1,12 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './cssmain.css';
-import { NavHashLink } from 'react-router-hash-link';
-import { BrowserRouter } from 'react-router-dom';
 
 function login() {
   return (
     <>
-    <BrowserRouter>
+    
     
 
 <div class="container" >
@@ -15,7 +14,7 @@ function login() {
 
         <div class="col-xl-10 col-lg-12 col-md-9">
 
-            <div class="card o-hidden border-0 shadow-lg" style={{marginTop:"5rem"}}>
+            <div class="card1 o-hidden border-0 shadow-lg" style={{marginTop:"5rem"}}>
                 <div class="card-body p-0">
                     <div class="row">
                         <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
@@ -41,13 +40,13 @@ function login() {
                                                 Me</label>
                                         </div>
                                     </div>
-                                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                    <Link to="/user" class="btn btn-primary btn-user btn-block">
                                         Login
-                                    </a>
+                                    </Link>
                                     <hr/>
-                                    <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <Link to="/user" class="btn btn-google btn-user btn-block">
                                         <i class="fab fa-google fa-fw"></i> Login with Google
-                                    </a>
+                                    </Link>
 
                                 </form>
                                 <br/>
@@ -55,7 +54,7 @@ function login() {
                                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                                 </div>
                                 <div class="text-center">
-                                <NavHashLink smooth  exact to="#register" className="small">Create an Account!</NavHashLink>
+                                <Link to="/register" className="small">Create an Account!</Link>
                                     
                                 </div>
                             </div>
@@ -69,18 +68,6 @@ function login() {
     </div>
 
 </div>
-</BrowserRouter>
-
-{/* <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script> */}
-
     
     </>
   )

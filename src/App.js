@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/navbar';
-import Dashboard from './components/dashboard';
+import Navbar from './components/Navbar';
+import Dashboard from './components/Dashboard';
 import MarketPlace from './components/MarketPlace';
 import Home from './components/Home';
 
+import {  Routes, Route } from "react-router-dom";
+import Nftdetails from './components/Nftdetails';
 
 
 
 function App() {
   return (
     <>
-    <Navbar/>
     <div className="pages">
 
-    {/* <Dashboard/> */}
+    <Navbar/> 
     {/* <MarketPlace/> */}
-    <Home/>
-
-
-    </div>
+    {/* <Home/> */}
+    <Dashboard/>
+    {/* <Nftdetails/> */}
+    </div>  
     </>
   );
 }

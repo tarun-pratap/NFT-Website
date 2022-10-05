@@ -1,29 +1,27 @@
 import React from 'react'
-// import Insta from './Svgs/insta'
-// import Github from './Svgs/github'
-// import Linkedin from './Svgs/linkedin'
-// import {NavHashLink} from 'react-router-dom'
-import { BrowserRouter/* ,Route,Routes */ } from 'react-router-dom';
-import { NavHashLink } from 'react-router-hash-link';
+import { Link,Outlet } from 'react-router-dom';
 import './navbar.css';
 
 function navbar() {
     return (
         <div className='cont'>
-            <BrowserRouter>
+            
             <nav className='navbar'>
-                <img src="ibmlogo.png" alt="" className='navlogo' />
+                <img src="/ibmlogo.png" alt="" className='navlogo' />
                 <ul className='navul'>
                     
-                    <li className='navli'> <NavHashLink smooth  exact to="#home" className="navroute"> Home </NavHashLink> </li>
-                    <li className='navli'> <NavHashLink smooth  exact to="#skills" className="navroute"> Explore </NavHashLink> </li>
-                    <li className='navli'> <NavHashLink smooth  exact to="#projects" className="navroute"> Marketplace </NavHashLink> </li>
-                    <li className='navli'> <NavHashLink smooth  exact to="#contact" className="navroute"> Steal Bucket </NavHashLink> </li>
-                    <li className='navli'> <NavHashLink smooth  exact to="#contact" className="navroute"> My NFTs </NavHashLink> </li>
-                    <li className='navli' id='dash'> <NavHashLink smooth  exact to="#about" className="navroute"> Dashboard </NavHashLink> </li>
+                    <li className='navli'> <Link to="home" className="navroute"> Home </Link> </li>
+                    <li className='navli'> <Link to="explore" className="navroute"> Explore </Link> </li>
+                    <li className='navli'> <Link to="marketplace" className="navroute"> Marketplace </Link> </li>
+                    <li className='navli'> <Link to="bucket" className="navroute"> Steal Bucket </Link> </li>
+                    <li className='navli'> <Link to="mynft" className="navroute"> My NFTs </Link> </li>
+                    <li className='navli' id='dash'> <Link to="dashboard" className="navroute"><div className="dash"> <div className="dp">
+                         <img src="/billidp.png"  id='dp' alt="" /></div>
+                    Dashboard <svg className='down' xmlns="http://www.w3.org/2000/svg" width={"2rem"}  viewBox="0 0 24 24" fill="none" stroke="rgb(0 199 255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>  </Link> </li>
                 </ul>
             </nav>
-                </BrowserRouter>
+            <Outlet/>
+               
         </div>
     )
 }

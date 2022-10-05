@@ -1,14 +1,18 @@
 import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
 import "./card.css"
 
 function card() {
   return (
    <>
+   <nav>
+
+         <Link to="nftdetails">
               <div class="card explore-card">
 
                 <figure class="card-banner">
                   <a href="#">
-                    <img src="bandar.gif" width="7rem" height="7rem" loading="lazy"
+                    <img src="/bandar.gif" width="7rem" height="7rem" loading="lazy"
                       alt="Walking On Air" class="img-cover"/>
                   </a>
                 </figure>
@@ -33,7 +37,10 @@ function card() {
                 </button>
 
               </div>
+            </Link>
             
+          </nav>
+          <Outlet/>
    </>
   )
 }

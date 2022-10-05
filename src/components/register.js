@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function register() {
   return (
  <>
  <div class="container" >
 
-<div class="card o-hidden border-0 shadow-lg " style={{marginTop:"5rem"}}>
+<div class="card1 o-hidden border-0 shadow-lg " style={{marginTop:"5rem"}}>
     <div class="card-body p-0" >
         <div class="row" >
             <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
@@ -39,13 +40,13 @@ function register() {
                                     id="exampleRepeatPassword" placeholder="Repeat Password"/>
                             </div>
                         </div>
-                        <a href="login.html" class="btn btn-primary btn-user btn-block">
+                        <Link to="/user" class="btn btn-primary btn-user btn-block">
                             Register Account
-                        </a>
+                        </Link>
                         <hr/>
-                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                        <Link to="/user" class="btn btn-google btn-user btn-block">
                             <i class="fab fa-google fa-fw"></i> Register with Google
-                        </a>
+                        </Link>
 
                     </form>
                     <br/>
@@ -53,7 +54,7 @@ function register() {
                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                     </div>
                     <div class="text-center">
-                        <a class="small" href="login.html">Already have an account? Login!</a>
+                        <Link to="/" class="small" >Already have an account? Login!</Link>
                     </div>
                 </div>
             </div>

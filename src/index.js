@@ -2,25 +2,41 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Login from './components/login';
-import Register from './components/register';
+import Login from './components/Login';
+import Register from './components/Register';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './components/Home';
+import MarketPlace from './components/MarketPlace';
+import Nftdetails from './components/Nftdetails';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    
-    {/* <Login/> */}
+
+ 
+
+    <BrowserRouter>
+    {/* <Login /> */}
     <App/>
-    {/* <Register/> */}
-    {/* <BrowserRouter>
-    <div id='Home'>
-      <App></App>
-    </div>
-    <div id='register'>
-    </div>
-    </BrowserRouter> */}
+    {/* <Nftdetails/> */}
+      {/* <Routes>
+
+        <Route exact path='/' element={< Login />}></Route>
+        <Route exact path='/register' element={< Register />}></Route>
+        <Route exact path='/user' element={< App />}>
+          <Route path="home" element={<Home />} />
+          <Route path="marketplace" element={<MarketPlace />}>
+          <Route path="nftdetails" element={<Nftdetails />} />
+          </Route>
+        </Route>
+
+      </Routes> */}
+    </BrowserRouter>
+
+
+    
   </React.StrictMode>
 );
 
