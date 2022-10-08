@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/Home';
 import MarketPlace from './components/MarketPlace';
 import Nftdetails from './components/Nftdetails';
+import Dashboard from './components/Dashboard';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,9 +20,9 @@ root.render(
 
     <BrowserRouter>
     {/* <Login /> */}
-    <App/>
+    {/* <App/> */}
     {/* <Nftdetails/> */}
-      {/* <Routes>
+      <Routes>
 
         <Route exact path='/' element={< Login />}></Route>
         <Route exact path='/register' element={< Register />}></Route>
@@ -30,9 +31,10 @@ root.render(
           <Route path="marketplace" element={<MarketPlace />}>
           <Route path="nftdetails" element={<Nftdetails />} />
           </Route>
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
 
-      </Routes> */}
+      </Routes>
     </BrowserRouter>
 
 

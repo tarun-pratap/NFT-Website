@@ -5,8 +5,6 @@ import './cssmain.css';
 function login() {
   return (
     <>
-    
-    
 
 <div class="container" >
 
@@ -40,11 +38,11 @@ function login() {
                                                 Me</label>
                                         </div>
                                     </div>
-                                    <Link to="/user" class="btn btn-primary btn-user btn-block">
+                                    <Link to="/user/home" class="btn btn-primary btn-user btn-block">
                                         Login
                                     </Link>
                                     <hr/>
-                                    <Link to="/user" class="btn btn-google btn-user btn-block">
+                                    <Link to="/user/home" class="btn btn-google btn-user btn-block">
                                         <i class="fab fa-google fa-fw"></i> Login with Google
                                     </Link>
 

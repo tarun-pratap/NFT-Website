@@ -9,6 +9,8 @@ function navbar() {
             <nav className='navbar'>
                 <img src="/ibmlogo.png" alt="" className='navlogo' />
                 <ul className='navul'>
+
+              
                     
                     <li className='navli'> <Link to="home" className="navroute"> Home </Link> </li>
                     <li className='navli'> <Link to="explore" className="navroute"> Explore </Link> </li>

@@ -18,7 +18,7 @@ function App() {
     <Navbar/> 
     {/* <MarketPlace/> */}
     {/* <Home/> */}
-    <Dashboard/>
+    {/* <Dashboard/> */}
     {/* <Nftdetails/> */}
     </div>  
     </>

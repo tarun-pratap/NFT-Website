@@ -1,48 +1,54 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import "./card.css"
-
-function card() {
+import "../explore.css"
+function card(props) {
   return (
-   <>
-   <nav>
+    <>
+    <section className="section explore" id="explore">
+        <div className="container">
+          <ul className="grid-list">
 
-         <Link to="nftdetails">
-              <div class="card explore-card">
+            <li>
+              <div className="card explore-card">
 
-                <figure class="card-banner">
+                <figure className="card-banner">
                   <a href="#">
-                    <img src="/bandar.gif" width="7rem" height="7rem" loading="lazy"
-                      alt="Walking On Air" class="img-cover"/>
+                    <img src = {props.nft_image} width="600" height="600" loading="lazy"
+                      alt="Walking On Air" className="img-cover"/>
                   </a>
                 </figure>
 
-                <h3 class="h3 card-title">
-                  <a href="#">NFT Name</a>
+                <span className="unitsminted">{props.units_minted}</span>
+                
+                <h3 className="h3 card-title">
+                  <a href="#">{props.nft_name}</a>
                 </h3>
 
-                <span class="card-author">
-                  Owned By <a href="#" class="author-link">Owner</a>
+                <span className="card-author">
+                  Owned By: <a href="#" className="author-link">Richard</a>
                 </span>
 
-                <div class="wrapper">
-                  <data class="wrapper-item" value="1.5">$ Price</data>
+                <div className="wrapper">
+                  <data className="wrapper-item" value="1.5">${props.nft_price}</data>
 
+                 
                 </div>
 
-                <button class="btn">
+                <button className="btn">
                   <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
 
                   <span>Buy</span>
                 </button>
-
               </div>
-            </Link>
-            
-          </nav>
-          <Outlet/>
-   </>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+    </>
   )
 }
 
 export default card
+
