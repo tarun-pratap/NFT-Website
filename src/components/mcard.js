@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import "./mcard.css"
 
-function card() {
+function card(props) {
   return (
    <>
    <nav>
@@ -12,7 +12,7 @@ function card() {
 
                 <figure class="card-banner">
                   <a href="#">
-                    <img src="/bandar.gif" width="7rem" height="7rem" loading="lazy"
+                    <img src={props.img} loading="lazy"
                       alt="Walking On Air" class="img-cover"/>
                   </a>
                 </figure>

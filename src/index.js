@@ -11,7 +11,7 @@ import MarketPlace from './components/MarketPlace';
 import Nftdetails from './components/Nftdetails';
 import Dashboard from './components/Dashboard';
 // import Explore from './explore';
-
+import MyNft from './components/mynft';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -34,6 +34,7 @@ root.render(
           </Route>
           <Route path="dashboard" element={<Dashboard />} />
           {/* <Route path="explore" element={<Explore />} /> */}
+          <Route path="mynft" element={<MyNft />} />
         </Route>
 
       </Routes>

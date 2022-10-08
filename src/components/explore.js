@@ -1,8 +1,8 @@
 import React from 'react'
 import "./explore.css"
-import Card from './components/card'
-import SellerCard from './components/sellercard'
-import Topcollections from './components/topcollections'
+import Card from './card'
+import SellerCard from './sellercard'
+import Topcollections from './topcollections'
 function explore() {
   return (
   <>

@@ -93,10 +93,13 @@ function MarketPlace() {
 
         </div>
         <div className="nftcards" id='nftcards'>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <Card img="/bandar.gif"/>
+          <Card img="/bandar.gif"/>
+          <Card img="/bandar.gif"/>
+          <Card img="/bandar.gif"/>
+          <Card img="/images/1.gif"/>
+          <Card img="/images/new2.jpg"/>
+          <Card img="/images/1.gif"/>
         </div>
       </div>
     </div>
