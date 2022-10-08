@@ -1,6 +1,6 @@
 import React from 'react'
 import "./marketplace.css"
-import Card from './card'
+import Card from './mcard'
 
 function MarketPlace() {
   
