@@ -10,7 +10,7 @@ import Home from './components/Home';
 import MarketPlace from './components/MarketPlace';
 import Nftdetails from './components/Nftdetails';
 import Dashboard from './components/Dashboard';
-// import Explore from './components/explore';
+import Explore from './components/explore';
 import MyNft from './components/mynft';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -32,7 +32,7 @@ root.render(
           <Route path="marketplace" element={<MarketPlace />}/>
           <Route path="nftdetails" element={<Nftdetails />} />
           <Route path="dashboard" element={<Dashboard />} />
-          {/* <Route path="explore" element={<Explore />} /> */}
+          <Route path="explore" element={<Explore />} />
           <Route path="mynft" element={<MyNft />} />
         </Route>
 

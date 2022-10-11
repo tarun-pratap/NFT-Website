@@ -12,8 +12,8 @@ function mynft() {
                 <article>
                     <h1>OWNED</h1>
                 </article>
-                <div class="containernft" >
-                    <div class="rowtpcard">
+                <div class="containernftt" >
+                    <div class="rowtpcardttt">
 
                         <Tpcard />
                         <Tpcard />
@@ -27,7 +27,7 @@ function mynft() {
                     <h1>SOLD</h1>
                 </article>
                 <div class="containernfts" >
-                    <div class="rowtpcard">
+                    <div class="rowtpcardttt">
                         <Tscard />
                         <Tscard />
                         <Tscard />

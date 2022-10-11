@@ -1,26 +1,85 @@
 import React from 'react'
 import "./marketplace.css"
 import Card from './mcard'
+import { useEffect,useState } from 'react';
+import axios from 'axios';
+// import Moralis  from 'moralis';
+import { ethers } from 'ethers';
+import { parse } from '@ethersproject/transactions';
+// import { EvmChain } from '@moralisweb3/evm-utils';
 
 function MarketPlace() {
+
+  const [nftarr, setnftarr] = useState([]);
+
+  // var nftmdarr=[];
+  var nftdata;
+
+ 
+  
+ var fetchnft= async () => {
+
+  const address=0x60E4d786628Fea6478F785A6d7e704777c86a7c6;
+  const token=1;
+  
+  const options = {
+    method: 'GET',
+    url: `https://deep-index.moralis.io/api/v2/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB`,
+    params: {chain: 'eth', format: 'decimal'},
+    headers: {accept: 'application/json', 'X-API-Key': 'test'}
+  };
+
+  axios
+    .request(options)
+    .then(function (response) {
+       
+      nftdata=response.data.result;
+       for (let i = 0; i < nftdata.length; i++) {
+        const ele = nftdata[i];
+          var nftd = eval('(' + ele.metadata + ')');
+          // console.log(nftd);
+          // nftmdarr.push(nftd);
+          // setnftarr(nftarr.push(nftd));
+          setnftarr(cur=>[...cur,nftd])
+       }
+      //  return nftmdarri;
+      //  console.log(nftmdarr[0]["image"]);
+       //  var data=response.data.result[1].metadata;
+       //  nftdata = eval('(' + data + ')');
+       
+      })
+      .catch(function (error) {
+        console.error(error);
+    });
+  }
+
+  useEffect(() => {
+    fetchnft();
+  },[]);
+ 
+  
+  
   
   function removefilter(){
-   document.getElementById('mf').style.display="none";
-   
-   document.getElementById('fbtn').style.opacity="1";
-   document.getElementById('fbtn').style.cursor="pointer";
-
-   document.getElementById('nftcards').style.gridTemplateColumns="auto auto auto auto";
+    
+    document.getElementById('mf').style.display="none";
+    
+    document.getElementById('fbtn').style.opacity="1";
+    document.getElementById('fbtn').style.cursor="pointer";
+    
+    document.getElementById('nftcards').style.gridTemplateColumns="auto auto auto auto";
   }
-
+  
   function removefbtn(){
-   document.getElementById('fbtn').style.opacity="0";
-   document.getElementById('fbtn').style.cursor="default";
-
-   document.getElementById('mf').style.display="block";
-   document.getElementById('nftcards').style.gridTemplateColumns="auto auto auto";
+    document.getElementById('fbtn').style.opacity="0";
+    document.getElementById('fbtn').style.cursor="default";
+    
+    document.getElementById('mf').style.display="block";
+    document.getElementById('nftcards').style.gridTemplateColumns="auto auto auto";
   }
-
+  
+  // console.log("nftmdarr");
+  // console.log(nftarr);
   return (
     <>
     <div className="mkplace">
@@ -93,7 +152,15 @@ function MarketPlace() {
 
         </div>
         <div className="nftcards" id='nftcards'>
-          <Card img="/bandar.gif"/>
+
+        {/* {nftmdarr.map(function(object, i){
+        console.log(i);
+    })} */}
+    {/* {
+      (console.log(nftarr[1]),
+      console.log(nftarr[1]))
+    } */}
+          {/* <Card img={nftarr[1]}/> */}
           <Card img="/bandar.gif"/>
           <Card img="/bandar.gif"/>
           <Card img="/bandar.gif"/>

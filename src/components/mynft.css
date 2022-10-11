@@ -1,33 +1,35 @@
-article {
-  background: linear-gradient(
+articlet {
+  /* background: linear-gradient(
     to right,
     hsl(98 100% 62%),
     hsl(204 100% 59%)
-  );
+  ); */
+  background: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
+  margin-top: 3rem;
 }
 
 h1 {
   line-height: 1.1;
 }
-.containernft{
+.containernftt{
     margin-top: 2rem;
     display: flex;
     justify-content: center;
 }
-.containernfts{
+/* .containernftt{
     margin-top: 2rem;
     display: flex;
     margin-bottom: 5rem;
     justify-content: center;
-}
+} */
 #smarg{
     margin-top: 5rem;
 }
 
-.rowtpcard{
+.rowtpcardttt{
     display: grid;
     grid-template-columns: auto auto auto auto;
     /* width: 50vw; */
@@ -37,19 +39,22 @@ h1 {
 
 
 
-.card-sl {
+.card-slt {
     border-radius: 20px;
     /* width: 20rem; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
 }
 
-.card-image img {
+.card-imaget img {
     max-width: 18rem;
+    width: 18rem;
     height: 18rem;
     border-radius: 20px 20px 0px 0px;
     box-shadow: rgba(0, 0, 0, 0.22) 40px 19px 43px;
 }
+
+
 
 .heartaction {
     position: relative;
@@ -76,14 +81,14 @@ h1 {
     -webkit-animation: pulse 1.5s infinite;
 }
 
-.card-heading {
+.card-headingt{
     font-size: 18px;
     font-weight: bold;
     background:  black;
     padding: 10px 15px;
 }
 
-.card-text {
+.card-textt {
     padding: 5px 10px;
     background: black;
     font-size: 20px;
@@ -94,7 +99,7 @@ h1 {
     width: 1.5rem;
 }
 
-.card-button {
+.card-buttont {
     display: flex;
     justify-content: center;
     padding: 10px 0;
@@ -103,10 +108,11 @@ h1 {
     color: #fff;
     border-radius: 0 0 20px 20px;
     background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+/* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
+background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);
 }
 
-.card-button:hover {
+.card-buttont:hover {
     text-decoration: none;
     background-color: #1D3461;
     color: #fff;
