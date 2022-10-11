@@ -9,7 +9,7 @@ function tscard() {
                            src='/bandar.gif' />
                     </div>
 
-                    <div class="heartaction" onclick="hearty()" id="hrtc" href="#"> <img src="heart.png" class="heartimg" alt=""/> </div>
+                    {/* <div class="heartaction" onclick="hearty()" id="hrtc" href="#"> <img src="heart.png" class="heartimg" alt=""/> </div> */}
                     <div class="card-headingt">
                     <center>text</center>
                     </div>
