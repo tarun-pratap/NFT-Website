@@ -1,5 +1,5 @@
 import React from 'react'
-import "../explore.css"
+import "./explore.css"
 function sellercard(props){
 return(
 

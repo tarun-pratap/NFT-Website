@@ -1,7 +1,22 @@
 import React from 'react'
 import "./Home.css"
+import { ethers } from 'ethers'
 
 function Home() {
+   (async () => {
+      const provider = new ethers.providers.JsonRpcProvider("https://smart-withered-arm.discover.quiknode.pro/b61fceb5ab48c1f1df04a06c8adccc72583597b9/");
+      provider.connection.headers = { "x-qn-api-version": 1 };
+      const heads = await provider.send("qn_fetchNFTsByCollection", {
+        collection: "0x60E4d786628Fea6478F785A6d7e704777c86a7c6",
+    
+        page: 1,
+        perPage: 3,
+      });
+      console.log(heads);
+      document.getElementById('nftdetailshome').innerHTML(heads);
+    })();
+    
+
   return (
     <>
     <div class="slider">
@@ -33,6 +48,7 @@ function Home() {
        <div class="items">
           <img src="/Bandar.gif" alt="Monkey NFT" />
        </div>
+
 
 
 

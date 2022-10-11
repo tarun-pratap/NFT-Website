@@ -1,4 +1,4 @@
-.card {
+.dcard {
     background-color: black;
     padding: 1.5rem;
     border-radius: 1rem;
@@ -6,12 +6,12 @@
     transition: var(--transition-2);
   }
   
-  .card-banner {
+  .dcard-banner {
     overflow: hidden;
     border-radius: var(--radius-6);
     background-color: var(--raisin-black);
   }
-  .img-cover{
+  .dimg-cover{
     width: 3rem;
   }
 
@@ -23,11 +23,11 @@
     pointer-events: none;
     color: var(--white);
   }
-  author-link:hover{
+  dauthor-link:hover{
     text-decoration: none;
   }
   
-  .img-cover {
+  .dimg-cover {
     width: 19vw;
     height: 40vh;
     object-fit: cover;
