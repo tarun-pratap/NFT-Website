@@ -164,9 +164,9 @@ function MarketPlace() {
           <Card img="/bandar.gif"/>
           <Card img="/bandar.gif"/>
           <Card img="/bandar.gif"/>
-          <Card img="/images/1.gif"/>
           <Card img="/images/new2.jpg"/>
-          <Card img="/images/1.gif"/>
+          <Card img="/images/new2.jpg"/>
+          <Card img="/images/new2.jpg"/>
         </div>
       </div>
     </div>
