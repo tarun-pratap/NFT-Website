@@ -4,71 +4,100 @@ import Card from './mcard'
 import { useEffect,useState } from 'react';
 import axios from 'axios';
 // import Moralis  from 'moralis';
-import { ethers } from 'ethers';
-import { parse } from '@ethersproject/transactions';
+// import { parse } from '@ethersproject/transactions';
 // import { EvmChain } from '@moralisweb3/evm-utils';
+
+// var nftarr=[];
 
 function MarketPlace() {
 
-  const [nftarr, setnftarr] = useState([]);
+  const [nftarr, setnftarr] = useState([]); 
 
-  // var nftmdarr=[];
-  var nftdata;
 
- 
-  
- var fetchnft= async () => {
+  var fetchnft = async() => {
+    var arr=[];
 
-  const address=0x60E4d786628Fea6478F785A6d7e704777c86a7c6;
-  const token=1;
-  
-  const options = {
-    method: 'GET',
-    url: `https://deep-index.moralis.io/api/v2/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB`,
-    params: {chain: 'eth', format: 'decimal'},
-    headers: {accept: 'application/json', 'X-API-Key': 'test'}
-  };
+    const options = {method: 'GET', headers: {accept: '*/*', 'x-api-key': 'demo-api-key'}};
+    const addresses=["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8","0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7","0x1A92f7381B9F03921564a437210bB9396471050C","0x2acAb3DEa77832C09420663b0E1cB386031bA17B","0x60E4d786628Fea6478F785A6d7e704777c86a7c6","0x9372b371196751dd2F603729Ae8D8014BbeB07f6","0x8630cDEaA26D042f0F9242ca30229b425E7f243f","0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"];
+      for (let j = 0; j < addresses.length; j++) {
+        const address = addresses[j];
+    const urlp=`https://api.reservoir.tools/tokens/v5?collection=`+address+`&sortBy=floorAskPrice&limit=10&includeTopBid=false&includeAttributes=false`;
 
-  axios
-    .request(options)
-    .then(function (response) {
-       
-      nftdata=response.data.result;
-       for (let i = 0; i < nftdata.length; i++) {
-        const ele = nftdata[i];
-          var nftd = eval('(' + ele.metadata + ')');
-          // console.log(nftd);
-          // nftmdarr.push(nftd);
-          // setnftarr(nftarr.push(nftd));
-          setnftarr(cur=>[...cur,nftd])
-       }
-      //  return nftmdarri;
-      //  console.log(nftmdarr[0]["image"]);
-       //  var data=response.data.result[1].metadata;
-       //  nftdata = eval('(' + data + ')');
-       
-      })
-      .catch(function (error) {
-        console.error(error);
+ await fetch(urlp, options)
+  .then(response => response.json())
+  .then(response => {
+    // console.log(response.tokens)
+    var narr= response.tokens;
+    narr.forEach(ele => {
+      // console.log(ele);
+      arr.push(ele);
     });
   }
+  
+  )
+  .catch(err => console.error(err));
+}
+arr.sort(() => (Math.random() > .5) ? 1 : -1);
+console.log(arr);
+setnftarr([...nftarr,...arr]);
 
-  useEffect(() => {
-    fetchnft();
-  },[]);
- 
-  
-  
-  
-  function removefilter(){
+  console.log("done")
+  //   const addresses=["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8","0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7","0x1A92f7381B9F03921564a437210bB9396471050C"];
+  //   for (let j = 0; j < 3; j++) {
+  //     const address = addresses[j];
+      
+  //     // const address="0xBd3531dA5CF5857e7CfAA92426877b022e612cf8";
+  //     const token=1;
+  //     const urlp=`https://deep-index.moralis.io/api/v2/nft/`+address;
+      
+  //     const options = {
+  //       method: 'GET',
+  //       url: urlp,
+  //       params: {chain: 'eth', format: 'decimal'},
+  //       headers: {accept: 'application/json', 'X-API-Key': 'test'}
+  //     };
+      
+  //     try{
+  //       const response = await axios(options);
+  //   // setnftarr(response.data);
+  //   var nftdata= await response.data.result;
+  //   // var narr=[];
+  //   console.log("l",nftdata.length);
+  //   for (let i = 0; i < nftdata.length; i++) {
+  //     const ele = nftdata[i];
+      
+  //     var nftd = await eval('(' + ele.metadata + ')');
+  //     // var nftimg=nftd["image"];
+  //     //  setnftarr(nftdata);
+  //     console.log(i,nftd)
+  //     // await narr.push(nftd);
+  //     setnftarr([...nftarr,nftd]);
+  //   }
+  //   // console.log(narr);
+  //   // nftarr=[...nftarr,...narr];
+  // }catch(err){
+  //   console.error(err)
+  // }
+// }
+}
+
+     useEffect(() => {
+        fetchnft();
+    },[]);
+
+   
     
-    document.getElementById('mf').style.display="none";
     
-    document.getElementById('fbtn').style.opacity="1";
-    document.getElementById('fbtn').style.cursor="pointer";
     
-    document.getElementById('nftcards').style.gridTemplateColumns="auto auto auto auto";
-  }
+    function removefilter(){
+      
+      document.getElementById('mf').style.display="none";
+      
+      document.getElementById('fbtn').style.opacity="1";
+      document.getElementById('fbtn').style.cursor="pointer";
+    
+      document.getElementById('nftcards').style.gridTemplateColumns="auto auto auto auto";
+    }
   
   function removefbtn(){
     document.getElementById('fbtn').style.opacity="0";
@@ -76,22 +105,22 @@ function MarketPlace() {
     
     document.getElementById('mf').style.display="block";
     document.getElementById('nftcards').style.gridTemplateColumns="auto auto auto";
+    // document.getElementById('mf').style.display="sticky";
   }
-  
-  // console.log("nftmdarr");
-  // console.log(nftarr);
+
   return (
     <>
+    {console.log("hello")}
     <div className="mkplace">
 
       <h1 className='Mtitle'>Market Place</h1>
         <div className="fsbtns">
           <div className="fbtn" id='fbtn' onClick={removefbtn}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 6C3 5.17157 3.67157 4.5 4.5 4.5H19.5C20.3284 4.5 21 5.17157 21 6C21 6.82843 20.3284 7.5 19.5 7.5H4.5C3.67157 7.5 3 6.82843 3 6ZM5.25 12C5.25 11.1716 5.92157 10.5 6.75 10.5H17.25C18.0784 10.5 18.75 11.1716 18.75 12C18.75 12.8284 18.0784 13.5 17.25 13.5H6.75C5.92157 13.5 5.25 12.8284 5.25 12ZM10.5 16.5C9.67157 16.5 9 17.1716 9 18C9 18.8284 9.67157 19.5 10.5 19.5H13.5C14.3284 19.5 15 18.8284 15 18C15 17.1716 14.3284 16.5 13.5 16.5H10.5Z" fill="white"></path></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M3 6C3 5.17157 3.67157 4.5 4.5 4.5H19.5C20.3284 4.5 21 5.17157 21 6C21 6.82843 20.3284 7.5 19.5 7.5H4.5C3.67157 7.5 3 6.82843 3 6ZM5.25 12C5.25 11.1716 5.92157 10.5 6.75 10.5H17.25C18.0784 10.5 18.75 11.1716 18.75 12C18.75 12.8284 18.0784 13.5 17.25 13.5H6.75C5.92157 13.5 5.25 12.8284 5.25 12ZM10.5 16.5C9.67157 16.5 9 17.1716 9 18C9 18.8284 9.67157 19.5 10.5 19.5H13.5C14.3284 19.5 15 18.8284 15 18C15 17.1716 14.3284 16.5 13.5 16.5H10.5Z" fill="white"></path></svg>
           &nbsp;Filters
           </div>
           <div className="sbtn" id='sbtn'>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 6C3 5.17157 3.67157 4.5 4.5 4.5H19.5C20.3284 4.5 21 5.17157 21 6C21 6.82843 20.3284 7.5 19.5 7.5H4.5C3.67157 7.5 3 6.82843 3 6ZM5.25 12C5.25 11.1716 5.92157 10.5 6.75 10.5H17.25C18.0784 10.5 18.75 11.1716 18.75 12C18.75 12.8284 18.0784 13.5 17.25 13.5H6.75C5.92157 13.5 5.25 12.8284 5.25 12ZM10.5 16.5C9.67157 16.5 9 17.1716 9 18C9 18.8284 9.67157 19.5 10.5 19.5H13.5C14.3284 19.5 15 18.8284 15 18C15 17.1716 14.3284 16.5 13.5 16.5H10.5Z" fill="white"></path></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M3 6C3 5.17157 3.67157 4.5 4.5 4.5H19.5C20.3284 4.5 21 5.17157 21 6C21 6.82843 20.3284 7.5 19.5 7.5H4.5C3.67157 7.5 3 6.82843 3 6ZM5.25 12C5.25 11.1716 5.92157 10.5 6.75 10.5H17.25C18.0784 10.5 18.75 11.1716 18.75 12C18.75 12.8284 18.0784 13.5 17.25 13.5H6.75C5.92157 13.5 5.25 12.8284 5.25 12ZM10.5 16.5C9.67157 16.5 9 17.1716 9 18C9 18.8284 9.67157 19.5 10.5 19.5H13.5C14.3284 19.5 15 18.8284 15 18C15 17.1716 14.3284 16.5 13.5 16.5H10.5Z" fill="white"></path></svg>
           &nbsp;Sort
           </div>
           
@@ -100,7 +129,7 @@ function MarketPlace() {
         <div className="filters" id='mf' >
           <div className="ft" style={{ borderBottom: "1px solid white", padding: "0.5rem" }}>
             <h3>Filters</h3>
-            <svg className='ftog' onClick={removefilter} width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M5.5 16.75L1.5 12.25L5.5 7.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><line x1="9.75" y1="4.25" x2="21.25" y2="4.25" stroke="white" stroke-width="1.5" stroke-linecap="round"></line><line x1="9.75" y1="12.25" x2="21.25" y2="12.25" stroke="white" stroke-width="1.5" stroke-linecap="round"></line><line x1="9.75" y1="20.25" x2="21.25" y2="20.25" stroke="white" stroke-width="1.5" stroke-linecap="round"></line></svg>
+            <svg className='ftog' onClick={removefilter} width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M5.5 16.75L1.5 12.25L5.5 7.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><line x1="9.75" y1="4.25" x2="21.25" y2="4.25" stroke="white" strokeWidth="1.5" strokeLinecap="round"></line><line x1="9.75" y1="12.25" x2="21.25" y2="12.25" stroke="white" strokeWidth="1.5" strokeLinecap="round"></line><line x1="9.75" y1="20.25" x2="21.25" y2="20.25" stroke="white" strokeWidth="1.5" strokeLinecap="round"></line></svg>
           </div>
           <div className="price" style={{ borderBottom: "1px solid white", padding: "0.5rem" }}>
             <h4>Price</h4>
@@ -152,21 +181,33 @@ function MarketPlace() {
 
         </div>
         <div className="nftcards" id='nftcards'>
+          {/* {console.log("bello")}
+          {console.log(nftarr)} */}
+          {nftarr.map((meta,i)=>(
+            // var nftd = eval('(' + meta.metadata + ')');
+            // console.log(meta,i)
+            meta.token.image&&<Card key={i}  img={meta.token.image} name={meta.token.name} owner={meta.token.owner} price={meta.market.floorAsk.price.amount.usd} />
+            // console.log(nftd["image"]);
+            // console.log(typeof(nftd));
+            // var nftimg=nftd["image"];
+            // <Card img= />
 
-        {/* {nftmdarr.map(function(object, i){
-        console.log(i);
-    })} */}
-    {/* {
-      (console.log(nftarr[1]),
-      console.log(nftarr[1]))
-    } */}
-          {/* <Card img={nftarr[1]}/> */}
-          <Card img="/bandar.gif"/>
-          <Card img="/bandar.gif"/>
+          ))}
+
+
+{/* 
+          {
+            arr.map((meta,i)=>(<Card img="/bandar.gif"/>))
+          } */}
+
+
+
+          {/* <Card img=""/> */}
+          {/* <Card img="/bandar.gif"/>
           <Card img="/bandar.gif"/>
           <Card img="/images/new2.jpg"/>
           <Card img="/images/new2.jpg"/>
-          <Card img="/images/new2.jpg"/>
+          <Card img="/images/new2.jpg"/> */}
         </div>
       </div>
     </div>
@@ -175,3 +216,21 @@ function MarketPlace() {
 }
 
 export default MarketPlace
+
+
+
+// const options = {
+//   method: 'GET',
+//   url: 'https://api.nftport.xyz/v0/nfts/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB',
+//   params: {chain: 'ethereum'},
+//   headers: {
+//     'Content-Type': 'application/json',
+//     Authorization: '3af3029d-aafe-4ec3-bb66-02da0c93eabb'
+//   }
+// };
+
+// axios.request(options).then(function (response) {
+//   console.log(response.data["nfts"]);
+// }).catch(function (error) {
+//   console.error(error);
+// });

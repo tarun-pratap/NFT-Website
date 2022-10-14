@@ -1,9 +1,31 @@
 import React from 'react'
+import { Doughnut } from 'react-chartjs-2'
+import { Chart, registerables } from 'chart.js';
 import "./dashboard.css"
 
+Chart.register(...registerables);
+const data={
+  labels:["NFT1","NFT2","NFT3"],
+  datasets: [
+    {
+      data:[5,7,3],
+      backgroundColor:[
+        "red",
+        "green",
+        "blue"
+      ],
+      borderColor:["red",
+      "green",
+      "blue"],
+    },
+  ],
+};
 function dashboard() {
+
+  
   return (
    <>
+  
    <div className="dashboardpage">
 
    <div className="cardrow">
@@ -44,12 +66,11 @@ function dashboard() {
         <h6>Last Month</h6> <div className="droparr"><svg class="svgarr" width={"2rem"} fill='white'  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M625.813 512.24L326 212.426 368.426 170l321.027 321.026c11.716 11.716 11.716 30.711 0 42.427L368.426 854.479 326 812.053 625.813 512.24z"  /></svg></div>
         </div>
         <div className="dgraph">
-          <div className="dchart">
-            <div className="midcircle">
-             
+        <div className="dchart">
+            <Doughnut data={data}/>
 
-            </div>
           </div>
+          
           <div className="gdetails">
              <h6><div className="clr" id='bclr'></div>Asstes</h6>
              <h6><div className="clr" id='yclr'></div>Investments</h6>

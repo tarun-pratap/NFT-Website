@@ -84,7 +84,12 @@
     text-decoration: none;
     color: #ec1f7f;
     text-shadow: 0 0 15px #e83e8c, 0 0 25px #e83e8c;
-    animation: glow 1.5s linear infinite;
+  }
+
+  .navrouteactive{
+    text-decoration: none;
+    color: #ec1f7f;
+    transition: 0.5s;
   }
 
   .actroute{
