@@ -2,93 +2,53 @@ import React from 'react'
 import "./marketplace.css"
 import Card from './mcard'
 import { useEffect,useState } from 'react';
-import axios from 'axios';
-// import Moralis  from 'moralis';
-// import { parse } from '@ethersproject/transactions';
-// import { EvmChain } from '@moralisweb3/evm-utils';
+// import axios from 'axios';
 
-// var nftarr=[];
+import { InfinitySpin } from 'react-loader-spinner';
+
 
 function MarketPlace() {
 
   const [nftarr, setnftarr] = useState([]); 
+  const [isLoading, setisLoading] = useState(true); 
 
 
   var fetchnft = async() => {
     var arr=[];
-
+    setisLoading(true);
+    
     const options = {method: 'GET', headers: {accept: '*/*', 'x-api-key': 'demo-api-key'}};
     const addresses=["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8","0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7","0x1A92f7381B9F03921564a437210bB9396471050C","0x2acAb3DEa77832C09420663b0E1cB386031bA17B","0x60E4d786628Fea6478F785A6d7e704777c86a7c6","0x9372b371196751dd2F603729Ae8D8014BbeB07f6","0x8630cDEaA26D042f0F9242ca30229b425E7f243f","0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"];
-      for (let j = 0; j < addresses.length; j++) {
-        const address = addresses[j];
-    const urlp=`https://api.reservoir.tools/tokens/v5?collection=`+address+`&sortBy=floorAskPrice&limit=10&includeTopBid=false&includeAttributes=false`;
-
- await fetch(urlp, options)
-  .then(response => response.json())
-  .then(response => {
-    // console.log(response.tokens)
-    var narr= response.tokens;
-    narr.forEach(ele => {
-      // console.log(ele);
-      arr.push(ele);
-    });
-  }
-  
-  )
-  .catch(err => console.error(err));
-}
-arr.sort(() => (Math.random() > .5) ? 1 : -1);
-console.log(arr);
-setnftarr([...nftarr,...arr]);
-
+    for (let j = 0; j < addresses.length; j++) {
+      const address = addresses[j];
+      const urlp=`https://api.reservoir.tools/tokens/v5?collection=`+address+`&sortBy=floorAskPrice&limit=10&includeTopBid=false&includeAttributes=false`;
+      
+      await fetch(urlp, options)
+      .then(response => response.json())
+      .then(response => {
+        // console.log(response.tokens)
+        var narr= response.tokens;
+        narr.forEach(ele => {
+          // console.log(ele);
+          arr.push(ele);
+        });
+      }
+      
+      )
+      .catch(err => console.error(err));
+    }
+    arr.sort(() => (Math.random() > .5) ? 1 : -1);
+    console.log(arr);
+    setnftarr([...nftarr,...arr]);
+    
+    setisLoading(false);
   console.log("done")
-  //   const addresses=["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8","0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7","0x1A92f7381B9F03921564a437210bB9396471050C"];
-  //   for (let j = 0; j < 3; j++) {
-  //     const address = addresses[j];
-      
-  //     // const address="0xBd3531dA5CF5857e7CfAA92426877b022e612cf8";
-  //     const token=1;
-  //     const urlp=`https://deep-index.moralis.io/api/v2/nft/`+address;
-      
-  //     const options = {
-  //       method: 'GET',
-  //       url: urlp,
-  //       params: {chain: 'eth', format: 'decimal'},
-  //       headers: {accept: 'application/json', 'X-API-Key': 'test'}
-  //     };
-      
-  //     try{
-  //       const response = await axios(options);
-  //   // setnftarr(response.data);
-  //   var nftdata= await response.data.result;
-  //   // var narr=[];
-  //   console.log("l",nftdata.length);
-  //   for (let i = 0; i < nftdata.length; i++) {
-  //     const ele = nftdata[i];
-      
-  //     var nftd = await eval('(' + ele.metadata + ')');
-  //     // var nftimg=nftd["image"];
-  //     //  setnftarr(nftdata);
-  //     console.log(i,nftd)
-  //     // await narr.push(nftd);
-  //     setnftarr([...nftarr,nftd]);
-  //   }
-  //   // console.log(narr);
-  //   // nftarr=[...nftarr,...narr];
-  // }catch(err){
-  //   console.error(err)
-  // }
-// }
 }
 
      useEffect(() => {
         fetchnft();
     },[]);
 
-   
-    
-    
-    
     function removefilter(){
       
       document.getElementById('mf').style.display="none";
@@ -105,7 +65,19 @@ setnftarr([...nftarr,...arr]);
     
     document.getElementById('mf').style.display="block";
     document.getElementById('nftcards').style.gridTemplateColumns="auto auto auto";
-    // document.getElementById('mf').style.display="sticky";
+  }
+
+  if (isLoading) {
+    return(
+      <div className="loadermp" style={{paddingLeft:"41.5vw",paddingTop:"30vh"}}>
+
+      <InfinitySpin 
+      width='200'
+      color="aqua"
+      />
+      </div>
+      )
+    
   }
 
   return (
@@ -181,33 +153,14 @@ setnftarr([...nftarr,...arr]);
 
         </div>
         <div className="nftcards" id='nftcards'>
-          {/* {console.log("bello")}
-          {console.log(nftarr)} */}
+         
           {nftarr.map((meta,i)=>(
-            // var nftd = eval('(' + meta.metadata + ')');
-            // console.log(meta,i)
+            
             meta.token.image&&<Card key={i}  img={meta.token.image} name={meta.token.name} owner={meta.token.owner} price={meta.market.floorAsk.price.amount.usd} />
-            // console.log(nftd["image"]);
-            // console.log(typeof(nftd));
-            // var nftimg=nftd["image"];
-            // <Card img= />
-
+           
           ))}
 
 
-{/* 
-          {
-            arr.map((meta,i)=>(<Card img="/bandar.gif"/>))
-          } */}
-
-
-
-          {/* <Card img=""/> */}
-          {/* <Card img="/bandar.gif"/>
-          <Card img="/bandar.gif"/>
-          <Card img="/images/new2.jpg"/>
-          <Card img="/images/new2.jpg"/>
-          <Card img="/images/new2.jpg"/> */}
         </div>
       </div>
     </div>
@@ -216,21 +169,3 @@ setnftarr([...nftarr,...arr]);
 }
 
 export default MarketPlace
-
-
-
-// const options = {
-//   method: 'GET',
-//   url: 'https://api.nftport.xyz/v0/nfts/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB',
-//   params: {chain: 'ethereum'},
-//   headers: {
-//     'Content-Type': 'application/json',
-//     Authorization: '3af3029d-aafe-4ec3-bb66-02da0c93eabb'
-//   }
-// };
-
-// axios.request(options).then(function (response) {
-//   console.log(response.data["nfts"]);
-// }).catch(function (error) {
-//   console.error(error);
-// });

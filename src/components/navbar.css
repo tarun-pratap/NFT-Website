@@ -26,9 +26,12 @@
 
   
   #dp{
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
+    border: 2px solid aqua;
+    
+    box-shadow: aqua 0px 0px 10px 0.1px;
   }
   .dp{
     border-radius: 50%;

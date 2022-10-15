@@ -29,9 +29,10 @@ root.render(
         <Route exact path='/' element={< Login />}></Route>
         <Route exact path='/register' element={< Register />}></Route>
         <Route exact path='/user' element={< App />}>
-          <Route path="home" element={<Graph />} />
+          <Route path="home" element={<Home />} />
           <Route path="marketplace" element={<MarketPlace />}/>
           <Route path="nftdetails" element={<Nftdetails />} />
+          <Route path="analytic" element={<Nftdetails />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="explore" element={<Explore />} />
           <Route path="mynft" element={<MyNft />} />
