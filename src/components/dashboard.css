@@ -162,9 +162,9 @@
 .dtagsr2{display: flex;gap: 1rem; margin-left: 4.5rem;}
 
 .elliptag{
-    width: 9rem;
-    height: 2.5rem;
-    border-radius: 1.25rem;
+    width: 10rem;
+    height: 2.8rem;
+    border-radius: 1.4rem;
     padding: 0.1rem;
     justify-content: center;
     align-items: center;
@@ -173,8 +173,11 @@
     background-color: rgb(128,128,128,0.3);
     
     box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
+    text-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
 
 }
+
+
 
 #et1{ background-color: pink;}
 #et2{ background-color: yellowgreen;}

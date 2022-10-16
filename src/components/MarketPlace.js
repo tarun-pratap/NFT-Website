@@ -3,6 +3,7 @@ import "./marketplace.css"
 import Card from './mcard'
 import { useEffect,useState } from 'react';
 // import axios from 'axios';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { InfinitySpin } from 'react-loader-spinner';
 
@@ -10,18 +11,18 @@ import { InfinitySpin } from 'react-loader-spinner';
 function MarketPlace() {
 
   const [nftarr, setnftarr] = useState([]); 
-  const [isLoading, setisLoading] = useState(true); 
+  // const [isLoading, setisLoading] = useState(true); 
 
 
   var fetchnft = async() => {
     var arr=[];
-    setisLoading(true);
+    // setisLoading(true);
     
     const options = {method: 'GET', headers: {accept: '*/*', 'x-api-key': 'demo-api-key'}};
     const addresses=["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8","0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7","0x1A92f7381B9F03921564a437210bB9396471050C","0x2acAb3DEa77832C09420663b0E1cB386031bA17B","0x60E4d786628Fea6478F785A6d7e704777c86a7c6","0x9372b371196751dd2F603729Ae8D8014BbeB07f6","0x8630cDEaA26D042f0F9242ca30229b425E7f243f","0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"];
     for (let j = 0; j < addresses.length; j++) {
       const address = addresses[j];
-      const urlp=`https://api.reservoir.tools/tokens/v5?collection=`+address+`&sortBy=floorAskPrice&limit=10&includeTopBid=false&includeAttributes=false`;
+      const urlp=`https://api.reservoir.tools/tokens/v5?collection=`+address+`&sortBy=floorAskPrice&limit=1&includeTopBid=false&includeAttributes=false`;
       
       await fetch(urlp, options)
       .then(response => response.json())
@@ -41,7 +42,7 @@ function MarketPlace() {
     console.log(arr);
     setnftarr([...nftarr,...arr]);
     
-    setisLoading(false);
+    // setisLoading(false);
   console.log("done")
 }
 
@@ -67,18 +68,18 @@ function MarketPlace() {
     document.getElementById('nftcards').style.gridTemplateColumns="auto auto auto";
   }
 
-  if (isLoading) {
-    return(
-      <div className="loadermp" style={{paddingLeft:"41.5vw",paddingTop:"30vh"}}>
+  // if (isLoading) {
+  //   return(
+  //     <div className="loadermp" style={{paddingLeft:"41.5vw",paddingTop:"30vh"}}>
 
-      <InfinitySpin 
-      width='200'
-      color="aqua"
-      />
-      </div>
-      )
+  //     <InfinitySpin 
+  //     width='200'
+  //     color="aqua"
+  //     />
+  //     </div>
+  //     )
     
-  }
+  // }
 
   return (
     <>
@@ -152,16 +153,31 @@ function MarketPlace() {
           </div>
 
         </div>
-        <div className="nftcards" id='nftcards'>
-         
+
+        <InfiniteScroll
+  dataLength={nftarr.length} //This is important field to render the next data
+  next={fetchnft}
+  hasMore={true}
+  loader={<div className="loadermp" style={{paddingLeft:"42.5vw",paddingTop:"25vh"}}>
+
+      <InfinitySpin 
+      width='200'
+      color="aqua"
+      />
+      </div>
+  }
+>
+  <div className="nftcards" id='nftcards'>
           {nftarr.map((meta,i)=>(
-            
             meta.token.image&&<Card key={i}  img={meta.token.image} name={meta.token.name} owner={meta.token.owner} price={meta.market.floorAsk.price.amount.usd} />
+            
            
           ))}
-
-
         </div>
+</InfiniteScroll>
+         
+
+
       </div>
     </div>
     </>

@@ -10,7 +10,7 @@ function Dashboard() {
 
   const [trans, setTrans] = useState([]); 
 
-
+  
   var fetchnft = async() => {
     var arr=[];
 
@@ -27,24 +27,17 @@ function Dashboard() {
   .then(response=>response.transfers)
   .then(response => {
     response.forEach(ele => {
-      var ts=ele.timestamp;
-      var theDate = new Date(ts * 1000);
-      var data={
-        dt: theDate,
-        price:ele.price,
-      }
-       data.price&&arr.push(ts)
+      var d = new Date(ele.timestamp*1000);
+       ele.price&&arr.push([new Date(d.getFullYear(),d.getMonth()+1, d.getDate()),ele.price])
       
     });
   }
   
   )
   .catch(err => console.error(err));
-  console.log(arr);
   setTrans([...trans,...arr]);
-  console.log(trans)
-  console.log("done")
 }
+console.log(trans);
 
 
 
@@ -70,6 +63,7 @@ function Dashboard() {
           </div>
           <div className="scard" id='sc2'>
             <h3>Total Assets</h3>
+            
           </div>
           <div className="scard" id='sc3'>
             <h3>Growth</h3>
@@ -89,15 +83,15 @@ function Dashboard() {
               <div className="dtags">
                 <div className="dtagsr1">
 
-                  <div className="elliptag" id='et1'></div>
-                  <div className="elliptag" id='et2'></div>
-                  <div className="elliptag" id='et3'></div>
+                  <div className="elliptag" id='et1'>User from 16/10/2022</div>
+                  <div className="elliptag" id='et2'>User's Top NFT: Cool Cats #7934</div>
+                  <div className="elliptag" id='et3'>Total NFTs: 5</div>
                 </div>
 
                 <div className="dtagsr2">
 
-                  <div className="elliptag" id='et4'></div>
-                  <div className="elliptag" id='et5'></div>
+                  <div className="elliptag" id='et4'>Fav Category: Collectibles</div>
+                  <div className="elliptag" id='et5'>Invested: 3 ETH</div>
                 </div>
               </div>
 
@@ -158,7 +152,7 @@ function Dashboard() {
 
               <Chart
                 chartType="LineChart"
-                data={[["Date", "NFT1","NFT2"], [2019, 5,6], [2020, 12,13],[2021,15,14]]}
+                data={[["Transaction Date", "Transaction amount",], ...trans]}
                 width="100%"
                 height="100%"
                 options={{"backgroundColor":"#152846","colors":["aqua","#ec1f7f"]}}
