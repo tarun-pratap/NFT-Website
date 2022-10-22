@@ -31,8 +31,7 @@ root.render(
         <Route exact path='/user' element={< App />}>
           <Route path="home" element={<Home />} />
           <Route path="marketplace" element={<MarketPlace />}/>
-          <Route path="nftdetails" element={<Nftdetails />} />
-          <Route path="analytic" element={<Analytics />} />
+          <Route path="nftdetails" element={<Analytics />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="explore" element={<Explore />} />
           <Route path="mynft" element={<MyNft />} />

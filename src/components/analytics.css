@@ -38,6 +38,13 @@
     border-radius: 3em;
     background-color: aqua;
 }
+.anadeta{
+    display: grid;
+   grid-template-columns: auto auto auto;
+    padding: 3rem;
+   
+    color: white;
+}
 
 .nftanalysis{
     width: 100%;

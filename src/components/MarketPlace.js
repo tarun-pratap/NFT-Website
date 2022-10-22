@@ -43,7 +43,7 @@ function MarketPlace() {
     setnftarr([...nftarr,...arr]);
     
     // setisLoading(false);
-  console.log("done")
+  console.log(arr)
 }
 
      useEffect(() => {

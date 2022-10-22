@@ -84,7 +84,7 @@ console.log(trans);
                 <div className="dtagsr1">
 
                   <div className="elliptag" id='et1'>User from 16/10/2022</div>
-                  <div className="elliptag" id='et2'>User's Top NFT: Cool Cats #7934</div>
+                  <div className="elliptag" id='et2'>Top NFT: Cool Cats #7934</div>
                   <div className="elliptag" id='et3'>Total NFTs: 5</div>
                 </div>
 
