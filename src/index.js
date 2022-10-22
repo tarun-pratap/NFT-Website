@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import Login from './components/Login';
-import Register from './components/Register';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './components/Home';
-import MarketPlace from './components/MarketPlace';
-import Nftdetails from './components/Nftdetails';
-import Dashboard from './components/Dashboard';
-import Explore from './components/explore';
-import MyNft from './components/mynft';
-import Analytics from './components/Analytics';
+import './index.css';
+
+import App from './App';
+import Login from './components/loginsignup/Login';
+import Register from './components/loginsignup/Register';
+import Home from './components/home/Home';
+import MarketPlace from './components/marketplace/MarketPlace';
+import Nftdetails from './components/mynftpage/Nftdetails';
+import Dashboard from './components/dashboard/Dashboard';
+import Explore from './components/explore/explore';
+import MyNft from './components/mynftpage/mynft';
+import Analytics from './components/analytics/Analytics';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

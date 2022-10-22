@@ -1,80 +1,54 @@
 import React from 'react'
 import Tpcard from './ppcard'
-import TopSellerCard from './TopSellerCard'
-import TopCollectionsCard from './TopCollectionsCard'
-import "./explore.css"
-function explore() {
-    return (
-        <>
-            <div className="mynftpage">
+import TopSellerCard from '../TopSellerCard'
+import TopCollectionsCard from '../TopCollectionsCard'
+import "./Home.css"
 
 
-                <div className='heading'>
-                    <h1>Explore The World Of NFT's</h1>
-                </div>
-                <div class="containernftt" >
-                    <div class="rowtpcarddp">
+function Home() {
+   
 
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-1.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-2.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-3.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-4.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-5.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-6.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-7.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-8.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-1.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-7.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-2.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-4.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        
+  return (
+    <>
+    <div class="slider">
+    <div class="rotator">
+       <div class="items">
+          <img src="/lions.gif" alt="loaded Lions NFT" />
+       </div>
+       <div class="items">
+          <img src="/Bunny.gif"alt="Bunny NFT collection" />
+       </div>
+       <div class="items">
+          <img src="/Acid.gif" alt="Acid Bored Apes" />
+       </div>
+       <div class="items">
+          <img src="/pirate.gif" alt="Pirate NFT" />
+       </div>
+       <div class="items">
+          <img src="/rand.gif" alt="Random NFT" />
+       </div>
+       <div class="items">
+          <img src="/bull.gif" alt="bull NFT" />
+       </div>
+       <div class="items">
+          <img src="/Snake-nft.gif" alt="Snake NFT" />
+       </div>
+       <div class="items">
+          <img src="/panda.gif" alt="Panda NFT" />
+       </div>
+       <div class="items">
+          <img src="/Bandar.gif" alt="Monkey NFT" />
+       </div>
+
+    
 
 
+      
+       
 
-                    </div>
-                </div>
-
-
-
-
-            </div>
-            <div className='topsellerstext'>
+    </div>
+ </div>
+ <div className='topsellerstext' style={{"marginTop":"30rem"}}>
                 <h1>Top Creators</h1>
             </div>
             <div class="containernftss" >
@@ -116,13 +90,15 @@ function explore() {
                 </div>
             </div>
             <div className='topcollectionstext'>
-                <h1>Top Collections</h1>
+                <h1>Collections on Our Site</h1>
             </div>
 
-<div class="containernft" >
+<div class="containernft" style={{"marginTop":"-0.5rem"}} >
                 <div class="rowtpcard">
 
-                   <TopCollectionsCard
+                   
+               
+                <TopCollectionsCard
                    avimage ="/images/coolcats.gif"
                    contractaddress="0x1A92f7381B9F03921564a437210bB9396471050C"
                    collectionname ="Cool Cats"
@@ -192,8 +168,9 @@ function explore() {
             </div>
 
 
-        </>
-    )
+
+    </>
+  )
 }
 
-export default explore
+export default Home

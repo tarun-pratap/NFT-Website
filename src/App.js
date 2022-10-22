@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from "./components/navbar"
-import Dashboard from './components/Dashboard';
-import MarketPlace from './components/MarketPlace';
-import Home from './components/Home';
+import Navbar from "./components/navbar/navbar"
+import Dashboard from './components/dashboard/Dashboard';
+import MarketPlace from './components/marketplace/MarketPlace';
+import Home from './components/home/Home';
 
 import {  Routes, Route } from "react-router-dom";
-import Nftdetails from './components/Nftdetails';
+import Nftdetails from './components/mynftpage/Nftdetails';
 
 
 
