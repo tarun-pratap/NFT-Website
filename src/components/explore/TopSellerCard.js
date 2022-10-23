@@ -10,9 +10,7 @@ function topsellercard(props) {
                     <div className='sellername'>
                         @{props.sname}
                     </div>
-                    <div className='sprice'>
-                        {props.sprice}$
-                    </div>
+                   
                    </span>
                    </div>
                  

@@ -90,13 +90,13 @@ background: linear-gradient(45deg, rgba(2,0,36,0) 5%, rgba(255,255,255,.5) 6%, r
 	transition: 1s;
 }
 
-button:hover {
+.noselect:hover {
 	background-position: left;
 	color: white;
 	box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
 }
 
-button:focus {
+.noselect:focus {
 	outline: none;
 }
 .creatordetails{

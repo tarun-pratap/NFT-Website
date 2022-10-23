@@ -3,8 +3,12 @@ import "./analytics.css"
 import { Chart } from "react-google-charts";
 import { InfinitySpin } from 'react-loader-spinner';
 import { useEffect,useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function Analytics(props) {
+
+  const location = useLocation()
+
     const [nftarr, setnftarr] = useState([]); 
     var opt = {
         title: 'Age of sugar maples vs. trunk diameter, in inches',
@@ -14,37 +18,37 @@ function Analytics(props) {
         trendlines: { 0: {} }    // Draw a trendline for data series 0.
       };
     const [trans, setTrans] = useState([]); 
-    var fetchnft = async() => {
-        var arr=[];
-        // setisLoading(true);
+    // var fetchnft = async() => {
+    //     var arr=[];
+    //     // setisLoading(true);
         
-        const options = {method: 'GET', headers: {accept: '*/*', 'x-api-key': 'demo-api-key'}};
-        const addresses=["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8","0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7","0x1A92f7381B9F03921564a437210bB9396471050C","0x2acAb3DEa77832C09420663b0E1cB386031bA17B","0x60E4d786628Fea6478F785A6d7e704777c86a7c6","0x9372b371196751dd2F603729Ae8D8014BbeB07f6","0x8630cDEaA26D042f0F9242ca30229b425E7f243f","0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"];
-        for (let j = 0; j < addresses.length; j++) {
-          const address = addresses[j];
-          const urlp=`https://api.reservoir.tools/tokens/v5?collection=`+address+`&sortBy=floorAskPrice&limit=1&includeTopBid=false&includeAttributes=false`;
+    //     const options = {method: 'GET', headers: {accept: '*/*', 'x-api-key': 'demo-api-key'}};
+    //     const addresses=["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8","0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7","0x1A92f7381B9F03921564a437210bB9396471050C","0x2acAb3DEa77832C09420663b0E1cB386031bA17B","0x60E4d786628Fea6478F785A6d7e704777c86a7c6","0x9372b371196751dd2F603729Ae8D8014BbeB07f6","0x8630cDEaA26D042f0F9242ca30229b425E7f243f","0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"];
+    //     for (let j = 0; j < addresses.length; j++) {
+    //       const address = addresses[j];
+    //       const urlp=`https://api.reservoir.tools/tokens/v5?collection=`+address+`&sortBy=floorAskPrice&limit=1&includeTopBid=false&includeAttributes=false`;
           
-          await fetch(urlp, options)
-          .then(response => response.json())
-          .then(response => {
-            // console.log(response.tokens)
-            var narr= response.tokens;
-            narr.forEach(ele => {
-              // console.log(ele);
-              arr.push(ele);
-            });
-          }
+    //       await fetch(urlp, options)
+    //       .then(response => response.json())
+    //       .then(response => {
+    //         // console.log(response.tokens)
+    //         var narr= response.tokens;
+    //         narr.forEach(ele => {
+    //           // console.log(ele);
+    //           arr.push(ele);
+    //         });
+    //       }
           
-          )
-          .catch(err => console.error(err));
-        }
-        arr.sort(() => (Math.random() > .5) ? 1 : -1);
-        console.log(arr);
-        setnftarr([...nftarr,...arr]);
+    //       )
+    //       .catch(err => console.error(err));
+    //     }
+    //     arr.sort(() => (Math.random() > .5) ? 1 : -1);
+    //     // console.log(arr);
+    //     setnftarr([...nftarr,...arr]);
         
-        // setisLoading(false);
-      console.log(arr)
-    }
+    //     // setisLoading(false);
+    //   // console.log(arr)
+    // }
     
         
     
@@ -54,8 +58,8 @@ function Analytics(props) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-            "contract_address":"0x1A92f7381B9F03921564a437210bB9396471050C",
-            "token_id":"7934"
+            "contract_address":location.state.collection,
+            "token_id":location.state.id
           })
     };
     fetch('/predict', requestOptions)
@@ -75,8 +79,8 @@ function Analytics(props) {
     const options = {method: 'GET', headers: {accept: '*/*', 'x-api-key': 'demo-api-key'}};
     // const addresses=["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8","0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7","0x1A92f7381B9F03921564a437210bB9396471050C","0x2acAb3DEa77832C09420663b0E1cB386031bA17B","0x60E4d786628Fea6478F785A6d7e704777c86a7c6","0x9372b371196751dd2F603729Ae8D8014BbeB07f6","0x8630cDEaA26D042f0F9242ca30229b425E7f243f","0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"];
    
-    const address = "0x1A92f7381B9F03921564a437210bB9396471050C";
-    const tokenid=7934;
+    const address = location.state.collection;
+    const tokenid=location.state.id;
         const urlt=`https://api.reservoir.tools/transfers/v2?token=`+address+`%3A`+tokenid+`&limit=20`
     // const urlp=`https://api.reservoir.tools/tokens/v5?collection=`+address+`&sortBy=floorAskPrice&limit=10&includeTopBid=false&includeAttributes=false`;
 
@@ -85,9 +89,7 @@ function Analytics(props) {
   .then(response=>response.transfers)
   .then(response => {
     response.forEach(ele => {
-      var d = new Date(ele.timestamp*1000);
-       ele.price&&arr.push([new Date(d.getFullYear(),d.getMonth(), d.getDate(),d.getHours(),d.getMinutes(),d.getSeconds()),ele.price])
-      
+       ele.price&&arr.push([new Date(ele.timestamp*1000),ele.price])
     });
   }
   
@@ -97,10 +99,10 @@ function Analytics(props) {
 }
 
 
-     useEffect(() =>{
+  useEffect(() =>{
    fetchnfttransfer();
    fetchml();
-   fetchnft();
+  //  fetchnft();
         
     },[]);
 

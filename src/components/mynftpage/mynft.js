@@ -1,6 +1,6 @@
 import React from 'react'
-import Tpcard from '../tpcard'
-import Tscard from '../tscard'
+import Tpcard from '../explore/tpcard'
+import Tscard from '../explore/tscard'
 import "./mynft.css"
 
 function mynft() {

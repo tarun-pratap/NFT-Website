@@ -1,7 +1,7 @@
 import React from 'react'
 import Tpcard from './ppcard'
-import TopSellerCard from '../TopSellerCard'
-import TopCollectionsCard from '../TopCollectionsCard'
+import TopSellerCard from '../explore/TopSellerCard'
+import TopCollectionsCard from '../explore/TopCollectionsCard'
 import "./Home.css"
 
 
