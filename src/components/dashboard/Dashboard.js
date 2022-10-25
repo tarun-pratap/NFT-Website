@@ -380,7 +380,7 @@ function Dashboard() {
                   startup: true,
                   easing: "linear",
                   duration: 1000,
-                },pointSize:7 }}
+                },pointSize:5 }}
                 legendToggle
 
                 loader={<InfinitySpin
