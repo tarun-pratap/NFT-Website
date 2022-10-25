@@ -5,27 +5,27 @@ import { InfinitySpin } from 'react-loader-spinner';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-var nft;
 function Analytics(props) {
-
+  
 
   
  var y= new Date().setFullYear(new Date().getFullYear() + 1)
-  // plus 1 month
+ // plus 1 month
  var m= new Date().setMonth(new Date().getMonth() + 1)
-//  console.log(m,y)
-
-
-  const location = useLocation();
-  const [trans, setTrans] = useState([]);
-  const [det, setDet] = useState([]);
-  const [reg, setReg] = useState([]);
-  const [pri, setPri] = useState();
-  const [isLoading, setisLoading] = useState(true);
-
-
-
-  var fetchnft = async () => {
+ //  console.log(m,y)
+ 
+ 
+ const location = useLocation();
+ const [trans, setTrans] = useState([]);
+ const [det, setDet] = useState([]);
+ const [reg, setReg] = useState([]);
+ const [pri, setPri] = useState();
+ const [isLoading, setisLoading] = useState(true);
+ 
+ 
+ 
+ var fetchnft = async () => {
+    var nft;
     const options = { method: 'GET', headers: { accept: '*/*', 'x-api-key': 'demo-api-key' } };
 
     const urlp = `https://api.reservoir.tools/stats/v2?token=` + location.state.collection + `%3A` + location.state.nid;
@@ -36,10 +36,10 @@ function Analytics(props) {
         nft = response.stats.market;
       })
       .catch(err => console.error(err));
-      setPri({...nft});
+      setPri([nft]);
       
       
-      console.log(pri)
+      console.log("pri",pri)
   }
 
 
@@ -150,7 +150,8 @@ function Analytics(props) {
             <h5>Contract Address:</h5>
             <h6 style={{ "fontSize": "0.7rem" }}>{det.contract}</h6>
             {/* {console.log("bello",pri)} */}
-            {/* {pri.floorAsk&&<h5>price: {pri.floorAsk.price.amount.usd} USD( {pri.floorAsk.price.amount.native} {pri.floorAsk.price.currency.symbol} )</h5>} */}
+            {pri.floorAsk&&
+            <h5>price: {pri.floorAsk.price.amount.usd} USD( {pri.floorAsk.price.amount.native} {pri.floorAsk.price.currency.symbol} )</h5>}
           </div>
 
         </div>
@@ -183,7 +184,7 @@ function Analytics(props) {
       <div className="nftanalysis">
         <h3>Analysis</h3>
         <div className="anadeta">
-          {/* <div className="rarity"> Top Bid: &nbsp; {pri.topBid.price.amount.usd} USD( {pri.topBid.price.amount.native} {pri.topBid.price.currency.symbol} )</div> */}
+          {pri.topBid&&<div className="rarity"> Top Bid: &nbsp; {pri.topBid.price.amount.usd} USD( {pri.topBid.price.amount.native} {pri.topBid.price.currency.symbol} )</div>}
           <div className="priceaft">Price after 1 month:{reg[0]*(m)+reg[1]}  ETH</div>
           <div className="priceaft">Price after 1 Year: {reg[0]*(y)+reg[1]} ETH</div>
         </div>
