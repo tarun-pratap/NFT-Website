@@ -15,41 +15,8 @@ function explore() {
                 <div class="containernftt" >
                     <div class="rowtpcarddp">
 
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-1.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-2.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-3.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-4.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-5.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-6.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-7.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-8.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                       
-                        
 
+                        
 
 
                     </div>
