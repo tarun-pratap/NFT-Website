@@ -15,38 +15,7 @@ function explore() {
                 <div class="containernftt" >
                     <div class="rowtpcarddp">
 
-                        <Tpcard nn = "Cool Cat #1490"
-                        cardimg ="/images/Cool-Cat-1490.webp" 
-                        cn= "CoolCats"
-                        nftprice = "8,470.69"/>
-                        <Tpcard nn = "Pudgy Penguin #2963"
-                        cardimg ="/images/pudgypenguin.png" 
-                       cn="PudgyPenguin"
-                        nftprice = "19,991,020.00"/>
-                        <Tpcard nn = "Meebit #2"
-                        cardimg ="/images/meebitt.avif" 
-                        cn="Meebits"
-                        nftprice = "1,493,641.32"/>
-                        <Tpcard nn = "Clayling #3973"
-                        cardimg ="/images/claylings.avif" 
-                        cn="clayling"
-                        nftprice = "5,869.48"/>
-                        <Tpcard nn = "CryptoPunk #7804"
-                        cardimg ="/images/cryptopunk.png" 
-                        cn="cryptopunk"
-                        nftprice = "6118812.00"/>
-                        <Tpcard nn = "DeadFellaz #4551"
-                        cardimg ="/images/deadfellaz.png" 
-                        cn="deadfellaz"
-                        nftprice = "2,201,055.00"/>
-                        <Tpcard nn = "Mutant Ape#21536"
-                        cardimg ="/images/mutant.png" 
-                        cn="Mutant Ape"
-                        nftprice = "146,737,000,000.00"/>
-                        <Tpcard nn = "boredbunny #1121"
-                        cardimg ="/images/bored.png" 
-                    cn= "boredbunny"
-                        nftprice = "40.1657"/>
+
                         
 
 
