@@ -23,7 +23,7 @@ function tpcard(props) {
                     <div class="card-text">
                       <center>  ${props.nftprice}</center>
                     </div>
-                    <a href="#" class="card-button"> Purchase</a>
+                    <a href="#" class="card-button"> Trending 🔥</a>
                 </div>
     </>
   )
