@@ -15,33 +15,17 @@
     width: 3rem;
   }
 
-  a{
-    text-decoration: none;
-  }
-  a:hover{
-    text-decoration: none;
-
-  }
 
   ion-icon {
     pointer-events: none;
     color: var(--white);
   }
   
-.dcard{
-  text-decoration: none;
-}
-.dcard:hover{
-  text-decoration: none;
-
-}
 
   .dauthor-link{
     font-size: 0.7rem;
   }
-  .dauthor-link:hover{
-    text-decoration: none;
-  }
+ 
   
   .dimg-cover {
     width: 19vw;
@@ -49,7 +33,7 @@
     object-fit: cover;
   }
   
-  .card-title,
-  .card-title > a { transition: var(--transition-2); }
+  /* .card-title,
+  .card-title > a { transition: var(--transition-2); } */
   
   

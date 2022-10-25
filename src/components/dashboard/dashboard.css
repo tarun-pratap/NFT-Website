@@ -131,27 +131,39 @@
     display: flex;
     flex-direction: column;
     padding-top: 1.3rem;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 .gdetails>h6{
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.2rem;
     display: flex;
 }
 
 #bclr{
-  background-color: aqua;  
+  background-color: #D672AB;  
 }
 #yclr{
-  background-color: yellow;  
+  background-color: #39E27D;  
 }
 #rclr{
-  background-color: red;  
+  background-color: #F68A5C;  
 }
 #gclr{
-  background-color: green;  
+  background-color: aqua;  
 }
 
+.carddet{
+    display: flex;
+    flex-direction: column;
+}
+.cardval3{
+    color: whitesmoke;
+    display: flex;
+    justify-content: flex-start;
+    width: 60%;
+    font-size: 1.3rem;
+    
+}
 
 .dtags{
     display: flex;
@@ -172,9 +184,8 @@
     display: flex;
     font-size: small;
     background-color: rgb(128,128,128,0.3);
-    
     box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
-    text-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
+    text-shadow: black 0px 19px 43px;
 
 }
 
@@ -230,7 +241,8 @@
     height: 3.5rem;
     display: flex;
     gap: 2rem;
-    justify-content: center;
+    font-size: 0.9rem;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem;
 }

@@ -1,28 +1,25 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
 import "./mcard.css"
 
 function card(props) {
   return (
    <>
-   <nav>
 
-         <Link to="../nftdetails">
               <div class="dcard">
 
                 <figure class="dcard-banner">
-                  <a href="#">
+                  
                     <img src={props.img} loading="lazy"
                       alt="Walking On Air" class="dimg-cover"/>
-                  </a>
+               
                 </figure>
 
                 <h3 class="h3 dcard-title">
-                  <a href="#">{props.name}</a>
+                  {props.name}
                 </h3>
 
                 <span class="dcard-author">
-                  Owned ID: <a href="#" class="dauthor-link">{props.owner}</a>
+                  Owned ID: <p class="dauthor-link">{props.owner}</p>
                 </span>
 
                 <div class="dwrapper">
@@ -36,10 +33,7 @@ function card(props) {
                 </button>
 
               </div>
-            </Link>
             
-          </nav>
-          <Outlet/>
    </>
   )
 }

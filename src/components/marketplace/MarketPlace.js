@@ -1,6 +1,7 @@
 import React from 'react'
 import "./marketplace.css"
 import Card from './mcard'
+import { Link } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 // import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -92,10 +93,10 @@ function MarketPlace() {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M3 6C3 5.17157 3.67157 4.5 4.5 4.5H19.5C20.3284 4.5 21 5.17157 21 6C21 6.82843 20.3284 7.5 19.5 7.5H4.5C3.67157 7.5 3 6.82843 3 6ZM5.25 12C5.25 11.1716 5.92157 10.5 6.75 10.5H17.25C18.0784 10.5 18.75 11.1716 18.75 12C18.75 12.8284 18.0784 13.5 17.25 13.5H6.75C5.92157 13.5 5.25 12.8284 5.25 12ZM10.5 16.5C9.67157 16.5 9 17.1716 9 18C9 18.8284 9.67157 19.5 10.5 19.5H13.5C14.3284 19.5 15 18.8284 15 18C15 17.1716 14.3284 16.5 13.5 16.5H10.5Z" fill="white"></path></svg>
           &nbsp;Filters
           </div>
-          <div className="sbtn" id='sbtn'>
+          {/* <div className="sbtn" id='sbtn'>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M3 6C3 5.17157 3.67157 4.5 4.5 4.5H19.5C20.3284 4.5 21 5.17157 21 6C21 6.82843 20.3284 7.5 19.5 7.5H4.5C3.67157 7.5 3 6.82843 3 6ZM5.25 12C5.25 11.1716 5.92157 10.5 6.75 10.5H17.25C18.0784 10.5 18.75 11.1716 18.75 12C18.75 12.8284 18.0784 13.5 17.25 13.5H6.75C5.92157 13.5 5.25 12.8284 5.25 12ZM10.5 16.5C9.67157 16.5 9 17.1716 9 18C9 18.8284 9.67157 19.5 10.5 19.5H13.5C14.3284 19.5 15 18.8284 15 18C15 17.1716 14.3284 16.5 13.5 16.5H10.5Z" fill="white"></path></svg>
           &nbsp;Sort
-          </div>
+          </div> */}
           
         </div>
       <div className="buyarea">
@@ -169,7 +170,7 @@ function MarketPlace() {
 >
   <div className="nftcards" id='nftcards'>
           {nftarr.map((meta,i)=>(
-            meta.token.image&&<Card key={i}  img={meta.token.image} name={meta.token.name} owner={meta.token.owner} price={meta.market.floorAsk.price.amount.usd} />
+            meta.token.image&&<Link to={"../nftanalyisis"} state={{collection:meta.token.contract,nid:Number(meta.token.tokenId)}}><Card key={i}  img={meta.token.image} name={meta.token.name} owner={meta.token.owner} price={meta.market.floorAsk.price.amount.usd} /></Link>
             
            
           ))}

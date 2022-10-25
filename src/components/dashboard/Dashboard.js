@@ -2,6 +2,7 @@ import React from 'react'
 import { Chart } from "react-google-charts";
 import { InfinitySpin } from 'react-loader-spinner';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import "./dashboard.css"
 
@@ -14,11 +15,15 @@ function Dashboard() {
   var fetchnft = async () => {
     var arr = [];
 
+    var ownnft=[["0x1A92f7381B9F03921564a437210bB9396471050C",1639],["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8",2592],["0x8630cDEaA26D042f0F9242ca30229b425E7f243f",1335],["0x2acAb3DEa77832C09420663b0E1cB386031bA17B",3564]]
+    // for (let i = 0; i < 4; i++) {
+      
+    
     const options = { method: 'GET', headers: { accept: '*/*', 'x-api-key': 'demo-api-key' } };
     // const addresses=["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8","0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7","0x1A92f7381B9F03921564a437210bB9396471050C","0x2acAb3DEa77832C09420663b0E1cB386031bA17B","0x60E4d786628Fea6478F785A6d7e704777c86a7c6","0x9372b371196751dd2F603729Ae8D8014BbeB07f6","0x8630cDEaA26D042f0F9242ca30229b425E7f243f","0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"];
 
-    const address = "0x1A92f7381B9F03921564a437210bB9396471050C";
-    const tokenid = 7934;
+    const address = ownnft[0][0];
+    const tokenid = ownnft[0][1];
     const urlt = `https://api.reservoir.tools/transfers/v2?token=` + address + `%3A` + tokenid + `&limit=20`
     // const urlp=`https://api.reservoir.tools/tokens/v5?collection=`+address+`&sortBy=floorAskPrice&limit=10&includeTopBid=false&includeAttributes=false`;
 
@@ -28,13 +33,20 @@ function Dashboard() {
       .then(response => {
         response.forEach(ele => {
           var d = new Date(ele.timestamp * 1000);
+          // if (i==0) {
           ele.price && arr.push([new Date(d.getFullYear(), d.getMonth() + 1, d.getDate()), ele.price])
+        // }
+        // else{
+        //     ele.price && arr.push([new Date(d.getFullYear(), d.getMonth() + 1, d.getDate()), ele.price])
+
+        //   }
 
         });
       }
 
       )
       .catch(err => console.error(err));
+    // }
     setTrans([...trans, ...arr]);
   }
   console.log(trans);
@@ -54,7 +66,7 @@ function Dashboard() {
           <div className="scard" id='sc1'>
             <div className="carddet">
               <h3>Total NFTs</h3>
-
+              <p className='cardval3'>4</p>
             </div>
             <div className="svg">
 
@@ -62,7 +74,10 @@ function Dashboard() {
             </div>
           </div>
           <div className="scard" id='sc2'>
+            <div className="carddet">
             <h3 style={{"fontSize":"1.72rem"}}>Total Assets</h3>
+              <p className='cardval3'>7.18ETH($9897.58)</p>
+            </div>
             <div className="svg">
               <svg width={"9rem"} height={"9rem"} style={{ "position": "relative", left: "3.5rem", bottom: "1.2rem" }} fill="rgba(0, 0, 0, 0.22)" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
@@ -172,7 +187,10 @@ function Dashboard() {
 
           </div>
           <div className="scard" id='sc3'>
+          <div className="carddet">
             <h3>Growth</h3>
+            <p className='cardval3' style={{color:"#39FF14"}}>150%</p>
+            </div>
             <div className="svg">
             <svg width={"9rem"} height={"9rem"} style={{ "position": "relative", left: "2.7rem", bottom: "1.1rem" }} fill="rgba(0, 0, 0, 0.22)" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
  <defs>
@@ -245,7 +263,10 @@ function Dashboard() {
 
           </div>
           <div className="scard" id='sc4'>
-            <h3>Investments</h3>
+          <div className="carddet">
+            <h3>Investment</h3>
+            <p className='cardval3' >10 ETH</p>
+            </div>
             <div className="svg">
 
               <svg id="Layer_1" width={"6rem"} height={"6rem"} style={{ "position": "relative", left: "1.7rem", bottom: "1rem" }} fill="rgba(0, 0, 0, 0.22)" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105.05 122.88"><title>money-saving</title><path class="cls-1" d="M68.11,51.49a18.57,18.57,0,0,1,3.74-1.91A40.38,40.38,0,0,1,79.39,49c3.64-.09,7.27.23,7.63,1a4,4,0,0,1,.41,2.1,4.73,4.73,0,0,1-.68,2A13.94,13.94,0,0,1,82.44,58c-1.66,1.14-3.18,2.19-2.93,3,0,.07.18.2.42.4a15.56,15.56,0,0,0,1.44,1,22.17,22.17,0,0,1,5.37,4.44,27.81,27.81,0,0,1,3.8,5.89c.34.67.67,1.37,1,2.09s.66,1.54,1,2.33l.06.25a6.8,6.8,0,0,0,.74,2.39c.15.25.3.37.44.37h1.76l.69,0c1.64-.12,2.56-.18,3.51,2.28a16.84,16.84,0,0,1,.79,6.43,23.5,23.5,0,0,1-1.25,6.91,4.8,4.8,0,0,1-1.61,2.79,5.61,5.61,0,0,1-3.25,1.19h-2c-.83,0-1.56,0-2.1,0s-.62-.09-.69-.05,0,.05-.11.23a19.77,19.77,0,0,1-2,2.42c-.82.85-1.78,1.79-2.7,2.66s-1.7,1.56-2.4,2.15l-.43.36a7.37,7.37,0,0,0-1.2,1.07,7.57,7.57,0,0,0,.67,1.88c.2.48.32.76.36.87.47,1.15.94,2.26,1.36,3.23.71,1.64,1.5,3.38,1.75,4l0,.06c.58,1.47.45,2.59-.36,3.39a4,4,0,0,1-3.24.83H74.33a4.79,4.79,0,0,1-2.74-.63,7.16,7.16,0,0,1-2.24-2.11l-.06-.11a18.13,18.13,0,0,1-.8-1.64c-.67-1.51-1.51-3.38-2.19-3.11a42.35,42.35,0,0,1-14.19,3.08,49.66,49.66,0,0,1-16.17-2.41c-1.73-.24-2.08.49-2.64,1.65-.16.33-.32.68-.55,1.12h0c-.14.28-.19.4-.24.5-.8,1.71-1.57,3.36-4,3.85l-.26,0-8.91-.07h-.09a3.54,3.54,0,0,1-1.45-.39,2.65,2.65,0,0,1-1.14-1.11c-.79-1.45-.26-2.54.28-3.65h0l.21-.43h0l3.13-6.85.06-.12a2.09,2.09,0,0,0,.38-1.39,2,2,0,0,0-.77-1h0c-.62-.44-1.23-.9-1.81-1.36s-1.17-1-1.73-1.49a32.21,32.21,0,0,1-5-5.84A30.67,30.67,0,0,1,8,92.41a25.73,25.73,0,0,1-1.36-5.67c0-.44-.09-.89-.12-1.34a11.22,11.22,0,0,1-5.9-7.13c-1-3.33-.87-7.47.61-12.08l2.5.8a18,18,0,0,0-.59,10.52A8.86,8.86,0,0,0,6.59,82.4c0-.39.08-.79.13-1.18A28.77,28.77,0,0,1,11.38,69.4,36.27,36.27,0,0,1,23.73,58l.2.14L39.64,68a47.29,47.29,0,0,0-8.16,2,3.74,3.74,0,0,0,2.44,7.07A40,40,0,0,1,47.23,75,47.49,47.49,0,0,1,61,77.19,3.75,3.75,0,0,0,63.18,70a59.27,59.27,0,0,0-6.1-1.55l11-17ZM104.17,4.61H95.29a.89.89,0,0,0-.88.87V27.05a.88.88,0,0,0,.88.87h8.88a.88.88,0,0,0,.88-.87V5.48a.88.88,0,0,0-.88-.87Zm-12,3.85a1.68,1.68,0,0,0-.28-1.05c-.57-.77-2-.54-2.85-.54a12.58,12.58,0,0,1-2.73-.22,31.09,31.09,0,0,1-3.89-1.29c-4.83-1.73-8.94-2.8-14-5a3.88,3.88,0,0,0-3.25,0A84.62,84.62,0,0,0,51.59,6.73a5.43,5.43,0,0,0-1.16.84,5.16,5.16,0,0,0-.87,1.17c-2.79,4-5.18,8.16-7.47,12.27-.77,1.44-1.09,2.81-.56,3.67,2.15,3.54,6-1.49,10.2-4.84,1.76-1.41,4.15-2.66,6.2-4.09,2.64-1.1,3.87-2.15,6.7-2.74,4.34-.38,4.7,5.85-1,6.08-3.87.15-11.85,3.66-14.09,6.9-2.09,3-.94,6,3.32,5.87l3.56-.66c5.66-1.07,5.5-1.28,11.41-.18,3.17.58,6.49,1.2,9.75.59,2-.37,3-1.17,4.81-2.52a16.37,16.37,0,0,1,2.83-2A10.82,10.82,0,0,1,87.8,26c1.36-.32,3.27.14,4.06-1a2.23,2.23,0,0,0,.33-1.17V8.46ZM47.89,36.32a6.29,6.29,0,1,0,7.48.57c-.62.13-1.17.26-1.52.32h0a6.4,6.4,0,0,1-.88.09,11.14,11.14,0,0,1-5.08-1Zm-6.63-4.9L27.08,53.25l23.39,14.8L70.63,37c-1.33-.18-2.57-.41-3.79-.63l-.78-.15-14.49,22a4.09,4.09,0,0,0-5.64,1.26l-9.24-5.86A4.09,4.09,0,0,0,35.43,48l9.31-14.13a8.22,8.22,0,0,1-1.2-2.2,5.83,5.83,0,0,1-2.28-.2Zm36.11,44a4.27,4.27,0,1,1-3,1.25,4.17,4.17,0,0,1,3-1.25Z"/></svg>
@@ -263,15 +284,15 @@ function Dashboard() {
               <div className="dtags">
                 <div className="dtagsr1">
 
-                  <div className="elliptag" id='et1'>User from 16/10/2022</div>
-                  <div className="elliptag" id='et2'>Top NFT: Cool Cats #7934</div>
-                  <div className="elliptag" id='et3'>Total NFTs: 5</div>
+                  <div className="elliptag" id='et1'>User from 9/5/2003</div>
+                  <div className="elliptag" id='et2'>Top NFT: Cool Cats #1639</div>
+                  <div className="elliptag" id='et3'>Total NFTs: 4</div>
                 </div>
 
                 <div className="dtagsr2">
 
                   <div className="elliptag" id='et4'>Fav Category: Collectibles</div>
-                  <div className="elliptag" id='et5'>Invested: 3 ETH</div>
+                  <div className="elliptag" id='et5'>Invested: 10 ETH</div>
                 </div>
               </div>
 
@@ -289,12 +310,16 @@ function Dashboard() {
 
                 <Chart
                   chartType="PieChart"
-                  data={[["Year", "NFT"], ["2019", 5], ["2020", 12], ["2021", 15]]}
+                  data={[["Year", "NFT"], ["DeadFellaz #3564", 1.01], ["Cool Cat #1639", 3.25], ["Pudgy Penguin #2592", 2.85],["Clayling #1335",0.079]]}
                   width="20rem"
                   height="20rem"
                   style={{ position: "relative", bottom: "1.5rem", right: "1.5rem" }}
                   
-                  options={{ legend: { position: "none" }, pieHole: 0.4, "backgroundColor": "none", "colors": ["blueviolet", "#ec1f7f", "yellowgreen", "burlywood"] }}
+                  options={{ legend: { position: "none" }, pieHole: 0.4, "backgroundColor": "none", "colors": ["#D672AB", "#39E27D", "#F68A5C", "aqua"],animation: {
+                    startup: true,
+                    easing: "linear",
+                    duration: 500,
+                  } }}
 
                 />
 
@@ -302,10 +327,10 @@ function Dashboard() {
               </div>
 
               <div className="gdetails">
-                <h6><div className="clr" id='bclr'></div>NFT 1</h6>
-                <h6><div className="clr" id='yclr'></div>NFT 2</h6>
-                <h6><div className="clr" id='rclr'></div>NFT 3</h6>
-                <h6><div className="clr" id='gclr'></div>NFT 4</h6>
+                <h6><div className="clr" id='bclr'></div>DeadFellaz #3564</h6>
+                <h6><div className="clr" id='yclr'></div>Cool Cat #1639</h6>
+                <h6><div className="clr" id='rclr'></div>Pudgy Penguin #2592</h6>
+                <h6><div className="clr" id='gclr'></div>Clayling #1335</h6>
               </div>
             </div>
           </div>
@@ -314,13 +339,27 @@ function Dashboard() {
           <div className="recenact">
             <h5>Recent Activities</h5>
             <div className="actiarea">
-              <div className="acticard">
-                <h5>Bought <a href=""> 2 NFTs </a> from lions collection</h5>
-                <p>2 hours ago</p>
+              <div className="acticard" >
+                {/* <h5>Bought <a href=""> 2 NFTs </a> from lions collection</h5> */}
+                <h5>Bought<Link to={"../nftanalyisis"} state={{collection:"0x1A92f7381B9F03921564a437210bB9396471050C",nid:1639}}> Cool Cat #1639</Link> NFT</h5>
+                <p style={{"fontSize":"0.8rem"}}>Aug-16-2021 06:54:24AM</p>
               </div>
-              <div className="acticard"></div>
-              <div className="acticard"></div>
-              <div className="acticard"></div>
+              <div className="acticard">
+                <h5>Bought <Link to={"../nftanalyisis"} state={{collection:"0xBd3531dA5CF5857e7CfAA92426877b022e612cf8",nid:2592}}>Pudgy Penguin #2592</Link> NFT</h5>
+                <p style={{"fontSize":"0.8rem"}}>Oct-21-2021 08:10:24 PM</p>
+
+              </div>
+              <div className="acticard" >
+                <h5>Bought <Link to={"../nftanalyisis"} state={{collection:"0x8630cDEaA26D042f0F9242ca30229b425E7f243f",nid:1335}}>Clayling #1335</Link> NFT</h5>
+                <p style={{"fontSize":"0.8rem"}}>Oct-22-2021 11:28:51 PM</p>
+
+              </div>
+              <div className="acticard">
+                <h5>Bought <Link to={"../nftanalyisis"} state={{collection:"0x2acAb3DEa77832C09420663b0E1cB386031bA17B",nid:3564}}>DeadFellaz #3564</Link> NFT</h5>
+                <p style={{"fontSize":"0.8rem"}}>Nov-24-2021 08:01:17 AM</p>
+
+              </div>
+
 
             </div>
 
@@ -335,7 +374,11 @@ function Dashboard() {
                 data={[["Transaction Date", "Transaction amount",], ...trans]}
                 width="100%"
                 height="100%"
-                options={{ "backgroundColor": "#152846", "colors": ["aqua", "#ec1f7f"] }}
+                options={{ legend: { position: "bottom" }, "backgroundColor": "#152846", "colors": ["aqua", "#ec1f7f"], animation: {
+                  startup: true,
+                  easing: "linear",
+                  duration: 1000,
+                },pointSize:7 }}
                 legendToggle
 
                 loader={<InfinitySpin
