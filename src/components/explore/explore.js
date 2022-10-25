@@ -47,22 +47,7 @@ function explore() {
                         cardimg ="/images/author-banner-8.jpg" 
                         Collection Name = ""
                         nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-1.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-7.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-2.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
-                        <Tpcard nn = "CreationArt"
-                        cardimg ="/images/author-banner-4.jpg" 
-                        Collection Name = ""
-                        nftprice = "12"/>
+                       
                         
 
 

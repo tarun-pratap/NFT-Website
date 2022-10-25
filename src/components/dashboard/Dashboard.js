@@ -16,15 +16,15 @@ function Dashboard() {
     var arr = [];
 
     var ownnft=[["0x1A92f7381B9F03921564a437210bB9396471050C",1639],["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8",2592],["0x8630cDEaA26D042f0F9242ca30229b425E7f243f",1335],["0x2acAb3DEa77832C09420663b0E1cB386031bA17B",3564]]
-    // for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
       
     
     const options = { method: 'GET', headers: { accept: '*/*', 'x-api-key': 'demo-api-key' } };
     // const addresses=["0xBd3531dA5CF5857e7CfAA92426877b022e612cf8","0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7","0x1A92f7381B9F03921564a437210bB9396471050C","0x2acAb3DEa77832C09420663b0E1cB386031bA17B","0x60E4d786628Fea6478F785A6d7e704777c86a7c6","0x9372b371196751dd2F603729Ae8D8014BbeB07f6","0x8630cDEaA26D042f0F9242ca30229b425E7f243f","0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"];
 
-    const address = ownnft[0][0];
-    const tokenid = ownnft[0][1];
-    const urlt = `https://api.reservoir.tools/transfers/v2?token=` + address + `%3A` + tokenid + `&limit=20`
+    const address = ownnft[i][0];
+    const tokenid = ownnft[i][1];
+    const urlt = `https://api.reservoir.tools/transfers/v2?token=` + address + `%3A` + tokenid + `&limit=50`
     // const urlp=`https://api.reservoir.tools/tokens/v5?collection=`+address+`&sortBy=floorAskPrice&limit=10&includeTopBid=false&includeAttributes=false`;
 
     await fetch(urlt, options)
@@ -32,21 +32,23 @@ function Dashboard() {
       .then(response => response.transfers)
       .then(response => {
         response.forEach(ele => {
+          console.log(ele,"elel")
           var d = new Date(ele.timestamp * 1000);
-          // if (i==0) {
-          ele.price && arr.push([new Date(d.getFullYear(), d.getMonth() + 1, d.getDate()), ele.price])
-        // }
-        // else{
-        //     ele.price && arr.push([new Date(d.getFullYear(), d.getMonth() + 1, d.getDate()), ele.price])
-
-        //   }
+          if (ele.price) {
+            
+            var subar=[new Date(d.getFullYear(), d.getMonth() + 1, d.getDate()),NaN,NaN,NaN,NaN]
+            subar[i+1]=ele.price;
+           arr.push(subar)
+            
+          }
 
         });
       }
 
       )
       .catch(err => console.error(err));
-    // }
+    }
+    console.log("4ar",arr)
     setTrans([...trans, ...arr]);
   }
   console.log(trans);
@@ -371,10 +373,10 @@ function Dashboard() {
 
               <Chart
                 chartType="LineChart"
-                data={[["Transaction Date", "Transaction amount",], ...trans]}
+                data={[["Transaction Date", "NFT1","NFT 2","nft3","nft4"], ...trans]}
                 width="100%"
                 height="100%"
-                options={{ legend: { position: "bottom" }, "backgroundColor": "#152846", "colors": ["aqua", "#ec1f7f"], animation: {
+                options={{ legend: { position: "bottom" }, "backgroundColor": "#152846", "colors": ["#D672AB","#39E27D","#F68A5C","aqua"], animation: {
                   startup: true,
                   easing: "linear",
                   duration: 1000,
