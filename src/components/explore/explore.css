@@ -60,6 +60,8 @@ font-style: italic;
     height: 150vh;
   grid-template-rows: 35% 35% 35% 35%;
     gap: 4rem;
+    grid-row-gap: 7rem;
+    margin-bottom: 3rem;
    
 }
 .rowtpcard{

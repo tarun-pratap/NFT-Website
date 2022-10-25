@@ -150,8 +150,8 @@ function Analytics(props) {
             <h5>Contract Address:</h5>
             <h6 style={{ "fontSize": "0.7rem" }}>{det.contract}</h6>
             {/* {console.log("bello",pri)} */}
-            {pri.floorAsk&&
-            <h5>price: {pri.floorAsk.price.amount.usd} USD( {pri.floorAsk.price.amount.native} {pri.floorAsk.price.currency.symbol} )</h5>}
+            {/* {pri.floorAsk&&
+            <h5>price: {pri.floorAsk.price.amount.usd} USD( {pri.floorAsk.price.amount.native} {pri.floorAsk.price.currency.symbol} )</h5>} */}
           </div>
 
         </div>
@@ -184,7 +184,7 @@ function Analytics(props) {
       <div className="nftanalysis">
         <h3>Analysis</h3>
         <div className="anadeta">
-          {pri.topBid&&<div className="rarity"> Top Bid: &nbsp; {pri.topBid.price.amount.usd} USD( {pri.topBid.price.amount.native} {pri.topBid.price.currency.symbol} )</div>}
+          {/* {pri.topBid&&<div className="rarity"> Top Bid: &nbsp; {pri.topBid.price.amount.usd} USD( {pri.topBid.price.amount.native} {pri.topBid.price.currency.symbol} )</div>} */}
           <div className="priceaft">Price after 1 month:{reg[0]*(m)+reg[1]}  ETH</div>
           <div className="priceaft">Price after 1 Year: {reg[0]*(y)+reg[1]} ETH</div>
         </div>
